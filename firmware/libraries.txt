@@ -1,0 +1,10 @@
+Arduino ESP8266 Core:
+- esp8266 by ESP8266 Community (Version 3.1.2 or higher)
+  Board URL: http://arduino.esp8266.com/stable/package_esp8266com_index.json
+
+Required Arduino Libraries (Install via Arduino IDE Library Manager):
+1. ArduinoJson (v6.21.x or higher) by Benoit Blanchon
+2. NTPClient (v3.2.1) by Fabrice Weinberg
+3. ESP8266HTTPClient (Built into ESP8266 core)
+4. ESP8266WiFi (Built into ESP8266 core)
+5. WiFiUdp (Built into ESP8266 core)

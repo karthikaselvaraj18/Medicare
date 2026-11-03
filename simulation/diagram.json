@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "author": "MediCare Monitor Project",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp8266-nodemcu",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_morning",
+      "top": -90,
+      "left": 130,
+      "attrs": { "color": "green", "label": "Morning LED (D6)" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r_morning",
+      "top": -40,
+      "left": 110,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_night",
+      "top": -90,
+      "left": 210,
+      "attrs": { "color": "blue", "label": "Night LED (D7)" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r_night",
+      "top": -40,
+      "left": 190,
+      "attrs": { "value": "230" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer",
+      "top": 80,
+      "left": 150,
+      "attrs": { "hasLocalSound": "true", "label": "Buzzer (D5)" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn_confirm",
+      "top": 200,
+      "left": 140,
+      "attrs": { "color": "red", "label": "Confirm Button (D2)" }
+    }
+  ],
+  "connections": [
+    [ "esp:D6", "r_morning:1", "green", [ "v-20", "h40" ] ],
+    [ "r_morning:2", "led_morning:A", "green", [ "v-20" ] ],
+    [ "led_morning:C", "esp:GND.1", "black", [ "v20", "h-140" ] ],
+
+    [ "esp:D7", "r_night:1", "blue", [ "v-30", "h70" ] ],
+    [ "r_night:2", "led_night:A", "blue", [ "v-20" ] ],
+    [ "led_night:C", "esp:GND.1", "black", [ "v30", "h-220" ] ],
+
+    [ "esp:D5", "buzzer:2", "red", [ "h30", "v40" ] ],
+    [ "buzzer:1", "esp:GND.2", "black", [ "h-40", "v-20" ] ],
+
+    [ "esp:D2", "btn_confirm:1.r", "orange", [ "v40", "h70" ] ],
+    [ "btn_confirm:2.r", "esp:GND.2", "black", [ "v20", "h-100" ] ]
+  ],
+  "dependencies": {}
+}
